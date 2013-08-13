@@ -1,0 +1,3 @@
+python convnet.py --data-path=/mnt/exthdd/imagenet_data/imagenet_batches/imagenet_tr/ --save-path=./imagenet_savemodels/half_imagenet/ --test-range=390-399 --train-range=0-389 --layer-def=./imagenet-layers/layers-conv-local-imagenet-half-160.cfg --layer-params=./imagenet-layers/layer-params-conv-local-imagenet-half-160.cfg --data-provider=imagenet --test-freq=13 --crop-border=16 --epochs=300000 1>imagenet_savemodels/half_imagenet/half_160.log 2>imagenet_savemodels/half_imagenet/half_160.err
+
+#1>/workplace/wzou/xy_cudaconvnet/imagenet_savemodels/full_imagenet_new7.log 2>/workplace/wzou/xy_cudaconvnet/imagenet_savemodels/full_imagenet_new7.err 
