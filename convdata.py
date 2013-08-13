@@ -519,12 +519,27 @@ class ImageNetDataProvider(LabeledDataProvider):
                     tmp = x[:,start_positions[i][0]:end_positions[i][0],start_positions[i][1]:end_positions[i][1]]
 		    data  [ :,i * im_cn + c] = n.reshape(tmp, (min_side * min_side * 3, ))
 		    label [ :,i * im_cn + c] = label_list[ c]
-
+        
+        
+        #h = numpy.random.randint(10) 
+        #numpy.random.seed(h)        
+        
+        rnd_seq = numpy.random.permutation(data.shape[1])
+        data = data[:, rnd_seq]         
+        label = label[:, rnd_seq]
+        
+        #b = list() 
+        #b.append(numpy.random.permutation(label[0]).tolist()) 
+        #label = b 
+        #print label
+        
+	#exit(0)
+        
 	dic = dict()
+        
 	dic['data'] = data
 	dic['labels'] = label
-	#print label
-	#exit(0)
+        
         return dic
 
 class FoodDataProvider(LabeledDataProvider):
