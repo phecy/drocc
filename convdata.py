@@ -323,7 +323,11 @@ class FlowerDataProvider(LabeledDataProvider):
                     tmp = x[:,start_positions[i][0]:end_positions[i][0],start_positions[i][1]:end_positions[i][1]]
 		    data  [ :,i * im_cn + c] = n.reshape(tmp, (min_side * min_side * 3, ))
 		    label [ :,i * im_cn + c] = label_list[ c]
-
+        
+        rnd_seq = numpy.random.permutation(data.shape[1])
+        data = data[:, rnd_seq]         
+        label = label[:, rnd_seq]
+        
 	dic = dict()
 	dic['data'] = data
 	dic['labels'] = label
